@@ -1,4 +1,4 @@
-# cron
+# crond
 
 A simple scheduler job runner
 
@@ -20,7 +20,6 @@ envs = {"FOO"="BAR","FOO1"="BAR1"}
 ## Usage
 
 ```sh
-mkdir -p ~/.config/cron
-vim ~/.config/cron/config.toml
-cron
+vim ~/.config/crond/config.toml
+crond
 ```
