@@ -17,7 +17,7 @@ async fn main() -> Result<()> {
     println!("{}", build::VERSION);
     return Ok(());
   }
-  init_log();
+  init_log("info")?;
   let config = Config::new(cli.config)?;
   info!("{:?}", config);
 
