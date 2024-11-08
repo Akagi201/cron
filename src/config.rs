@@ -35,7 +35,7 @@ impl Config {
       if !config_dir.exists() {
         std::fs::create_dir_all(&config_dir).expect("Failed to create config directory");
       }
-      home_dir.join("config.toml")
+      config_dir.join("config.toml")
     });
     let c = FileConfig::builder()
       .add_source(File::from(config))
