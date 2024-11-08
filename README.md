@@ -17,6 +17,12 @@ envs = {"FOO"="BAR","FOO1"="BAR1"}
 
 ```
 
+## Install
+
+```sh
+cargo install --git https://github.com/Akagi201/crond.git
+```
+
 ## Usage
 
 ```sh
