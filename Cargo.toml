@@ -1,0 +1,20 @@
+[package]
+name = "cron"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.20", features = ["derive"] }
+config = "0.14.1"
+eyre = "0.6.12"
+homedir = "0.3.4"
+serde = { version = "1.0.214", features = ["derive"] }
+serde_derive = "1.0.214"
+shadow-rs = "0.35.2"
+tokio = { version = "1.41.1", features = ["full"] }
+tokio-cron-scheduler = { version = "0.13.0", features = ["signal"] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter", "json"] }
+
+[build-dependencies]
+shadow-rs = "0.35.2"
