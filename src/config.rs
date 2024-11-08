@@ -30,11 +30,16 @@ impl Config {
   pub fn new(config: Option<PathBuf>) -> Result<Self, ConfigError> {
     let config = config.unwrap_or_else(|| {
       let home_dir = homedir::my_home().expect("Failed to get home directory").unwrap();
-      home_dir.join(".config/cron/config.toml")
+      let config_dir = home_dir.join(".config/crond");
+      // create directory if it doesn't exist
+      if !config_dir.exists() {
+        std::fs::create_dir_all(&config_dir).expect("Failed to create config directory");
+      }
+      config_dir.join("config.toml")
     });
     let c = FileConfig::builder()
       .add_source(File::from(config))
-      .add_source(Environment::with_prefix("CRON"))
+      .add_source(Environment::with_prefix("CROND"))
       .build()?;
     c.try_deserialize()
   }
