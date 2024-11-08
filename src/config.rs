@@ -30,8 +30,7 @@ impl Config {
   pub fn new(config: Option<PathBuf>) -> Result<Self, ConfigError> {
     let config = config.unwrap_or_else(|| {
       let home_dir = homedir::my_home().expect("Failed to get home directory").unwrap();
-      let path = home_dir.join(".config/cron/config.toml");
-      path
+      home_dir.join(".config/cron/config.toml")
     });
     let c = FileConfig::builder()
       .add_source(File::from(config))

@@ -6,8 +6,8 @@ use tokio_cron_scheduler::{Job as SchedJob, JobScheduler};
 
 use crate::{config::Config, log::*};
 
-const DEFAULT_WORKING_DIR: &'static str = "/tmp";
-const DEFAULT_LOG_DIR: &'static str = "/tmp";
+const DEFAULT_WORKING_DIR: &str = "/tmp";
+const DEFAULT_LOG_DIR: &str = "/tmp";
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Job {
