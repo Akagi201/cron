@@ -36,13 +36,13 @@ impl CronJob {
   pub async fn run(&self) -> Result<()> {
     let mut sched = JobScheduler::new().await?;
     for (name, job) in self.jobs.iter() {
-      info!("Running job {:?}", name);
       let name = name.clone();
       let job = job.clone();
       let log_path = self.log_path.clone().unwrap_or(DEFAULT_LOG_DIR.to_string());
+      info!("Loaded job {:?}", name);
       sched
         .add(SchedJob::new(job.schedule.clone(), move |_uuid, _l| {
-          // log_path + "/" + name + "_stdout.log"
+          info!("Running job {:?}", name);
           let stdout_file = format!("{}/{}_stdout.log", log_path, name.clone());
           let stderr_file = format!("{}/{}_stderr.log", log_path, name.clone());
           let stdout = File::create(stdout_file).expect("failed to create stdout file");
